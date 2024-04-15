@@ -1,46 +1,49 @@
-*{
-  margin:0;
+* {
+  margin: 0;
   box-sizing: border-box;
 }
 
-body{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+body {
+  font-family: sans-serif;
+  padding: 90px 20px 0;
 }
 
-.header{
-  background-color: blueviolet;
+.header {
+  background-color: #7da0cd;
   height: 80px;
-  position: relative;
+  position: fixed;
   width: 100%;
-  top:0;
+  top: 0;
   left: 0;
 }
 
-.nav{
+.nav {
   display: flex;
   justify-content: space-between;
+
   max-width: 992px;
   margin: 0 auto;
-  /*background-color: brown;*/ /*comentario*/
 }
 
-.logo{
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.logo {
   font-size: 30px;
   font-weight: bold;
   padding: 0 40px;
   line-height: 80px;
 }
-.nav-link{
-  color:white;
-  text-decoration: none;
-}
 
-.nav-menu{
+.nav-menu {
   display: flex;
   margin-right: 40px;
   list-style: none;
 }
-.nav-menu-item{
+
+.nav-menu-item {
   font-size: 18px;
   margin: 0 10px;
   line-height: 80px;
@@ -48,7 +51,83 @@ body{
   width: max-content;
 }
 
-.nav-menu-link:hover{
-  color:rgba(226, 43, 168)
+.nav-menu-link {
+  padding: 8px 12px;
+  border-radius: 3px;
 }
 
+.nav-menu-link:hover,
+.nav-menu-link_active {
+  background-color: #034574;
+  transition: 0.5s;
+}
+
+/* TOGGLE */
+.nav-toggle {
+
+  color: rgb(203, 3, 3);
+  background: none;
+  border: none;
+  font-size: 30px;
+  padding: 0 20px;
+  line-height: 60px;
+  cursor: pointer;
+
+   display: none; 
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+
+  .header {
+    height: 60px;
+  }
+
+  .logo {
+    font-size: 25px;
+    padding: 0 20px;
+    line-height: 60px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+    background-color: #c9d3dd;
+    position: fixed;
+    top: 60px;
+    width: 100%;
+    padding: 20px 0;
+
+    height: calc(100% - 60px);
+    overflow-y: auto;
+
+    left: 100%;
+    transition: left 0.3s;
+  }
+
+  .nav-menu-item {
+    line-height: 70px;
+  }
+
+  .nav-menu-link:hover,
+  .nav-menu-link_active {
+    background: none;
+    color: #ed0a78;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu_visible {
+    left: 0;
+  }
+
+  .nav-toggle:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
